@@ -1,0 +1,63 @@
+<view class="topbar">
+  <view class="doc-chip" bindtap="openPicker">
+    <text wx:if="{{selectedNames.length}}" class="doc-names">{{selectedNames}}</text>
+    <text wx:else class="muted">选择文档（点此处）</text>
+    <text class="arrow">›</text>
+  </view>
+  <view class="top-actions">
+    <view class="link" bindtap="openHistory">历史</view>
+    <view class="link" bindtap="newSession" data-toast="1">新会话</view>
+  </view>
+</view>
+
+<scroll-view class="chat" scroll-y scroll-into-view="{{scrollInto}}"
+             scroll-with-animation>
+  <view wx:if="{{!messages.length}}" class="empty">
+    <view>围绕选中的文档提问，例如：</view>
+    <view>「第三季度毛利率是多少？」</view>
+    <view>「总结验收通知里的关键时间点」</view>
+  </view>
+
+  <view wx:for="{{messages}}" wx:key="index" id="m{{index}}"
+        class="msg {{item.role === 'user' ? 'mine' : 'bot'}}">
+    <view class="bubble {{item.role === 'user' ? 'bubble-me' : 'bubble-bot'}}"
+          data-index="{{index}}" bindlongpress="copyMessage">
+      <rich-text wx:if="{{item.role === 'assistant'}}" nodes="{{item.html}}"></rich-text>
+      <text wx:else>{{item.content}}</text>
+    </view>
+  </view>
+  <view class="chat-pad"></view>
+</scroll-view>
+
+<view class="inputbar">
+  <input class="ask" value="{{inputValue}}" bindinput="onInput" bindconfirm="send"
+         confirm-type="send" placeholder="输入问题，仅依据文档回答"
+         disabled="{{sending}}" cursor-spacing="20" adjust-position />
+  <button class="btn-primary send" size="mini" bindtap="send"
+          disabled="{{sending || !inputValue.length}}">发送</button>
+</view>
+
+<!-- 会话历史弹层 -->
+<view class="mask" wx:if="{{historyVisible}}" bindtap="closeHistory">
+  <view class="panel" catchtap="noopStop">
+    <view class="head">
+      <text>问答会话历史</text>
+      <text class="muted" bindtap="closeHistory">关闭</text>
+    </view>
+    <scroll-view scroll-y class="hist-body">
+      <view wx:if="{{historyLoading}}" class="empty">加载中…</view>
+      <view wx:elif="{{!sessions.length}}" class="empty">还没有会话记录</view>
+      <view class="srow" wx:for="{{sessions}}" wx:key="id"
+            data-id="{{item.id}}" bindtap="loadSession"
+            bindlongpress="deleteSession">
+        <view class="srow-main">
+          <view class="stitle">{{item.title}}</view>
+          <view class="muted smeta">{{item.timeText}} · {{item.turns_count || 0}} 轮 · {{item.files.length || 0}} 份文档</view>
+        </view>
+        <text class="arrow">›</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<file-picker id="picker" bind:confirm="onPicked" />

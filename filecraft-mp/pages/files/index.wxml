@@ -1,0 +1,41 @@
+<view class="toolbar">
+  <input class="search" placeholder="搜索文件名" value="{{keyword}}" bindinput="onSearch" confirm-type="search" />
+  <button class="btn-primary upload-btn" size="mini" bindtap="upload" disabled="{{uploading}}">上传</button>
+</view>
+
+<view class="select-bar" wx:if="{{filtered.length}}">
+  <view class="muted" bindtap="toggleAll">已选 {{selectedCount}} / {{filtered.length}}（点此全选/取消）</view>
+  <view class="actions">
+    <button class="btn-ghost mini" size="mini" bindtap="convertSelected"
+            disabled="{{converting || !selectedCount}}">转换</button>
+    <button class="btn-danger-ghost mini" size="mini" bindtap="deleteSelected"
+            disabled="{{!selectedCount}}">删除</button>
+  </view>
+</view>
+
+<view wx:if="{{loading && !loaded}}" class="empty">加载中…</view>
+<view wx:elif="{{!filtered.length}}" class="empty">
+  <block wx:if="{{loaded}}">
+    <view>还没有文件</view>
+    <view>点右上角「上传」，从聊天记录里选择</view>
+    <view>docx / pptx / xlsx / pdf 文件</view>
+  </block>
+  <view wx:else>加载中…</view>
+</view>
+
+<view class="file-list">
+  <view class="card file-card" wx:for="{{filtered}}" wx:key="id"
+        data-id="{{item.id}}" bindtap="openFile">
+    <view class="check {{selected[item.id] ? 'on' : ''}}"
+          data-id="{{item.id}}" catchtap="toggle">{{selected[item.id] ? '✓' : ''}}</view>
+    <view class="badge" style="background:{{item.color}}">{{item.badge}}</view>
+    <view class="info">
+      <view class="name">{{item.name}}</view>
+      <view class="meta muted">
+        {{item.sizeText}} · {{item.uploaded}}
+        <text class="ok" wx:if="{{item.converted}}"> · 已转换（{{item.mdSizeText}}）</text>
+        <text class="todo" wx:else> · 未转换</text>
+      </view>
+    </view>
+  </view>
+</view>

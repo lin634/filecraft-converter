@@ -1,0 +1,18 @@
+<view wx:if="{{loading && !loaded}}" class="empty">加载中…</view>
+<view wx:elif="{{!items.length}}" class="empty">
+  <block wx:if="{{loaded}}">
+    <view>还没有{{type === 'qa' ? '问答会话' : '总结'}}记录</view>
+    <view>{{type === 'qa' ? '在「问答」页发起提问后会自动保存' : '在「AI 总结」页生成或保存后会出现在这里'}}</view>
+  </block>
+  <view wx:else>加载中…</view>
+</view>
+
+<view class="card hcard" wx:for="{{items}}" wx:key="id"
+      data-id="{{item.id}}" bindtap="openItem" bindlongpress="deleteItem">
+  <view class="hrow">
+    <view class="htitle">{{item.title}}</view>
+    <view class="hbadge">{{item.badge}}</view>
+  </view>
+  <view class="muted hmeta" wx:if="{{item.filesText}}">{{item.filesText}}</view>
+  <view class="muted hmeta">{{item.timeText}}</view>
+</view>

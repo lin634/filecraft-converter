@@ -1,0 +1,91 @@
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  display: flex;
+  align-items: flex-end;
+}
+
+.panel {
+  width: 100%;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 75vh;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 28rpx 32rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-bottom: 1rpx solid #f3f4f6;
+}
+
+.body {
+  flex: 1;
+  min-height: 300rpx;
+  max-height: 55vh;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  padding: 22rpx 32rpx;
+  border-bottom: 1rpx solid #f9fafb;
+}
+
+.check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #d1d5db;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.check.on {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.badge {
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 700;
+  border-radius: 8rpx;
+  padding: 6rpx 10rpx;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 29rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  font-size: 22rpx;
+  margin-top: 4rpx;
+}
+
+.foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+  padding: 24rpx 32rpx;
+  border-top: 1rpx solid #f3f4f6;
+}

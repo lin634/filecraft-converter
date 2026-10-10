@@ -1,0 +1,69 @@
+.wrap {
+  min-height: 100vh;
+  padding-top: 120rpx;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.logo-mark {
+  width: 132rpx;
+  height: 132rpx;
+  margin: 0 auto 24rpx;
+  border-radius: 32rpx;
+  background: #2563eb;
+  color: #fff;
+  font-size: 56rpx;
+  font-weight: 700;
+  line-height: 132rpx;
+}
+
+.logo-title {
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.logo-sub {
+  margin-top: 8rpx;
+}
+
+.form {
+  margin: 0 40rpx;
+}
+
+.field {
+  margin-bottom: 28rpx;
+}
+
+.label {
+  display: block;
+  font-size: 26rpx;
+  color: #6b7280;
+  margin-bottom: 10rpx;
+}
+
+.input {
+  background: #f3f4f6;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 30rpx;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+
+.submit {
+  margin-top: 12rpx;
+}
+
+.tips {
+  text-align: center;
+  margin-top: 40rpx;
+  padding: 0 60rpx;
+  white-space: pre-line;
+}

@@ -1,0 +1,92 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 24rpx 0;
+  gap: 16rpx;
+}
+
+.search {
+  flex: 1;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 14rpx 24rpx;
+  font-size: 28rpx;
+}
+
+.upload-btn {
+  padding: 0 32rpx;
+}
+
+.select-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 28rpx 0;
+}
+
+.actions {
+  display: flex;
+  gap: 14rpx;
+}
+
+.file-list {
+  padding-bottom: 40rpx;
+}
+
+.file-card {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  padding: 22rpx 24rpx;
+}
+
+.check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #d1d5db;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.check.on {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.badge {
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 700;
+  border-radius: 8rpx;
+  padding: 6rpx 10rpx;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 29rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  margin-top: 4rpx;
+  font-size: 22rpx;
+}
+
+.ok {
+  color: #16a34a;
+}
+
+.todo {
+  color: #d97706;
+}

@@ -1,0 +1,29 @@
+{
+  "compileType": "miniprogram",
+  "libVersion": "3.8.10",
+  "appid": "touristappid",
+  "projectname": "filecraft-mp",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "packOptions": {
+    "ignore": [
+      { "type": "file", "value": "README.md" }
+    ],
+    "include": []
+  }
+}

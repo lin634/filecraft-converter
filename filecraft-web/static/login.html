@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>登录 — FileCraft Web</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%84%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="login-body">
+
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-brand">FileCraft <span class="web-badge">Web</span></div>
+    <div class="login-tagline">文档转 Markdown · AI 总结 · 文档问答</div>
+
+    <form id="login-form" class="login-form">
+      <label class="login-label">用户名</label>
+      <input id="username" class="text-input" autocomplete="username" autofocus required>
+      <label class="login-label">密码</label>
+      <input id="password" type="password" class="text-input" autocomplete="current-password" required>
+      <div id="login-error" class="login-error hidden"></div>
+      <button id="login-btn" class="btn primary login-btn" type="submit">登 录</button>
+    </form>
+
+    <div class="login-hint">
+      <div class="login-hint-title">测试账号</div>
+      <div class="login-hint-row"><code>demo</code> / <code>demo123</code>　演示账号，已预置样例文档</div>
+      <div class="login-hint-row"><code>test1</code> / <code>test123456</code>　空白账号</div>
+      <div class="login-hint-row"><code>test2</code> / <code>test123456</code>　空白账号</div>
+      <div class="login-hint-note">各账号的文件与历史相互独立，登录后保留 7 天</div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const form = document.getElementById("login-form");
+const errBox = document.getElementById("login-error");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errBox.classList.add("hidden");
+  const btn = document.getElementById("login-btn");
+  btn.disabled = true; btn.textContent = "登录中…";
+  try {
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: document.getElementById("username").value.trim(),
+        password: document.getElementById("password").value,
+      }),
+    });
+    if (res.ok) { location.href = "/"; return; }
+    const data = await res.json().catch(() => ({}));
+    errBox.textContent = data.detail || "登录失败，请重试";
+    errBox.classList.remove("hidden");
+  } catch (_) {
+    errBox.textContent = "网络错误，请重试";
+    errBox.classList.remove("hidden");
+  } finally {
+    btn.disabled = false; btn.textContent = "登 录";
+  }
+});
+</script>
+</body>
+</html>

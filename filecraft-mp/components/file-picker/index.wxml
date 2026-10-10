@@ -1,0 +1,27 @@
+<view class="mask" wx:if="{{visible}}" bindtap="close">
+  <view class="panel" catchtap="noop">
+    <view class="head">
+      <text>选择文档（仅已转换的可用于 AI）</text>
+      <text class="muted" bindtap="close">关闭</text>
+    </view>
+    <scroll-view scroll-y class="body">
+      <view wx:if="{{loading}}" class="empty">加载中…</view>
+      <view wx:elif="{{!files.length}}" class="empty">
+        还没有文件，请先到「文件」页上传并转换
+      </view>
+      <view class="row" wx:for="{{files}}" wx:key="id"
+            data-id="{{item.id}}" bindtap="toggle">
+        <view class="check {{checked[item.id] ? 'on' : ''}}">{{checked[item.id] ? '✓' : ''}}</view>
+        <view class="badge" style="background:{{item.color}}">{{item.badge}}</view>
+        <view class="info">
+          <view class="name">{{item.name}}</view>
+          <view class="muted meta">{{item.sizeText}} · {{item.converted ? '已转换' : '未转换'}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="foot">
+      <button class="btn-ghost" size="mini" bindtap="close">取消</button>
+      <button class="btn-primary" size="mini" bindtap="confirm">确定</button>
+    </view>
+  </view>
+</view>

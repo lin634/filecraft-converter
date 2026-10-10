@@ -1,0 +1,58 @@
+<view class="card">
+  <view class="row-head" bindtap="openPicker">
+    <view class="picker-label">
+      <view class="label">选择文档</view>
+      <view class="muted" wx:if="{{selectedNames.length}}">
+        <text wx:for="{{selectedNames}}" wx:key="*this" class="chip">{{item}}</text>
+      </view>
+      <view class="muted" wx:else>点此选择要总结的文档（可多选）</view>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+
+  <view class="field">
+    <view class="label">额外要求（可选）</view>
+    <textarea class="extra" placeholder="如：重点关注财务数据 / 800 字以内"
+              value="{{extra}}" bindinput="onExtra" maxlength="200" auto-height />
+  </view>
+
+  <view class="run-row" wx:if="{{phase !== 'running'}}">
+    <button class="btn-primary run" bindtap="start">开始 AI 总结</button>
+  </view>
+  <view class="run-row" wx:else>
+    <view class="progress">
+      <view class="spinner"></view>
+      <text class="progress-text">{{progressText}}</text>
+    </view>
+    <button class="btn-danger-ghost" size="mini" bindtap="cancel">取消</button>
+  </view>
+</view>
+
+<view class="card logs" wx:if="{{logs.length}}">
+  <view class="log muted" wx:for="{{logs}}" wx:key="*this">· {{item}}</view>
+</view>
+
+<block wx:if="{{summaryMd}}">
+  <view class="card">
+    <view class="seg">
+      <view class="seg-item {{viewMode === 'edit' ? 'on' : ''}}"
+            data-mode="edit" bindtap="switchView">编辑</view>
+      <view class="seg-item {{viewMode === 'preview' ? 'on' : ''}}"
+            data-mode="preview" bindtap="switchView">预览</view>
+    </view>
+
+    <textarea wx:if="{{viewMode === 'edit'}}" class="editor" value="{{summaryMd}}"
+              bindinput="onMdInput" maxlength="-1" />
+    <scroll-view wx:else scroll-y class="preview">
+      <rich-text nodes="{{richHtml}}"></rich-text>
+    </scroll-view>
+  </view>
+
+  <view class="actions">
+    <button class="btn-primary act" size="mini" bindtap="exportPdf">导出 PDF</button>
+    <button class="btn-ghost act" size="mini" bindtap="saveHistory">存入历史</button>
+    <button class="btn-ghost act" size="mini" bindtap="copyResult">复制全文</button>
+  </view>
+</block>
+
+<file-picker id="picker" bind:confirm="onPicked" />

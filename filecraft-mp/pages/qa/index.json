@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "文档问答",
+  "usingComponents": {
+    "file-picker": "/components/file-picker/index"
+  }
+}

@@ -1,0 +1,25 @@
+<view wx:if="{{loading}}" class="empty">加载中…</view>
+<view wx:elif="{{error}}" class="empty">{{error}}</view>
+
+<block wx:else>
+  <view class="seg-bar">
+    <view class="seg">
+      <view class="seg-item {{viewMode === 'preview' ? 'on' : ''}}"
+            data-mode="preview" bindtap="switchView">渲染</view>
+      <view class="seg-item {{viewMode === 'raw' ? 'on' : ''}}"
+            data-mode="raw" bindtap="switchView">原文</view>
+    </view>
+    <view class="bar-actions">
+      <button class="btn-ghost" size="mini" bindtap="exportPdf">导出 PDF</button>
+      <button class="btn-ghost" size="mini" bindtap="copyAll">复制</button>
+    </view>
+  </view>
+
+  <scroll-view scroll-y class="doc">
+    <view wx:if="{{viewMode === 'preview'}}">
+      <rich-text nodes="{{richHtml}}"></rich-text>
+    </view>
+    <view wx:else class="raw">{{md}}</view>
+    <view class="doc-pad"></view>
+  </scroll-view>
+</block>

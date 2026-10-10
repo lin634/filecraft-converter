@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FileCraft</string>
+    <string name="err_title">无法连接服务器</string>
+    <string name="err_retry">重试</string>
+    <string name="err_change_server">更换服务器地址</string>
+    <string name="err_server_line">当前服务器：</string>
+    <string name="server_dialog_title">服务器地址</string>
+    <string name="server_dialog_msg">填写完整地址，支持 https:// 或 http://（如局域网 http://192.168.1.5:3100）。</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="menu_title_fmt">当前服务器：\n%s</string>
+    <string name="menu_refresh">刷新页面</string>
+    <string name="menu_home">回到首页</string>
+    <string name="menu_change">切换服务器地址…</string>
+    <string name="menu_clear_cookies">清除登录状态</string>
+    <string name="clear_confirm">清除所有登录状态（Cookies）并重新加载？</string>
+    <string name="pick_file">选择文件</string>
+    <string name="download_started">已开始下载：</string>
+    <string name="invalid_url">无效的服务器地址</string>
+    <string name="url_empty">地址不能为空</string>
+    <string name="cookies_cleared">已清除登录状态</string>
+</resources>

@@ -1,0 +1,23 @@
+<view class="card user">
+  <view class="avatar">{{display[0] || '?'}}</view>
+  <view class="uinfo">
+    <view class="uname">{{display}}</view>
+    <view class="muted">@{{username}} · 服务器 {{serverVersion || '…'}}</view>
+  </view>
+</view>
+
+<view class="card menu">
+  <view class="mi" bindtap="goHistory" data-type="summary">
+    <text>总结历史</text><text class="arrow">›</text>
+  </view>
+  <view class="mi" bindtap="goHistory" data-type="qa">
+    <text>问答历史</text><text class="arrow">›</text>
+  </view>
+  <view class="mi" bindtap="about">
+    <text>关于</text><text class="arrow">›</text>
+  </view>
+</view>
+
+<view class="card">
+  <button class="btn-danger-ghost logout" bindtap="logout">退出登录</button>
+</view>

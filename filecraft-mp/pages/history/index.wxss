@@ -1,0 +1,36 @@
+.hcard {
+  padding: 24rpx 28rpx;
+}
+
+.hrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.htitle {
+  flex: 1;
+  font-size: 30rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hbadge {
+  flex-shrink: 0;
+  font-size: 22rpx;
+  color: #2563eb;
+  background: #eff6ff;
+  border-radius: 8rpx;
+  padding: 4rpx 12rpx;
+}
+
+.hmeta {
+  font-size: 23rpx;
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

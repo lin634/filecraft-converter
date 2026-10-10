@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment / secrets
+.env
+filecraft-web/data/secret.txt
+filecraft-web/data/accounts.json
+filecraft-web/data/workspaces/
+
+# Build artifacts
+filecraft/dist/
+filecraft-android/build/
+filecraft-android/*.apk
+filecraft-android/*.apk.idsig
+filecraft-android/debug.keystore
+filecraft/build/
+*.spec.bak
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Logs
+*.log
+javac.log
+
+# Selftest output
+report.txt
+frozen_report.txt
+.zcode/

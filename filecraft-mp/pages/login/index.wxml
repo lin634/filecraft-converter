@@ -1,0 +1,28 @@
+<view class="wrap">
+  <view class="logo">
+    <view class="logo-mark">FC</view>
+    <view class="logo-title">FileCraft</view>
+    <view class="logo-sub muted">文档转 Markdown · AI 总结 · 文档问答</view>
+  </view>
+
+  <view class="card form">
+    <view class="field">
+      <text class="label">用户名</text>
+      <input class="input" placeholder="请输入用户名" value="{{username}}"
+             data-field="username" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="label">密码</text>
+      <input class="input" placeholder="请输入密码" password value="{{password}}"
+             data-field="password" bindinput="onInput" bindconfirm="submit" />
+    </view>
+    <view wx:if="{{error}}" class="error">{{error}}</view>
+    <button class="btn-primary submit" loading="{{loading}}" disabled="{{loading}}"
+            bindtap="submit">登 录</button>
+  </view>
+
+  <view class="tips muted">
+    <view>需要账号？请使用服务器上已开通的账号登录。</view>
+    <view>演示账号：demo / demo123</view>
+  </view>
+</view>

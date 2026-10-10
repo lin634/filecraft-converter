@@ -1,0 +1,49 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin-top: 30rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-size: 44rpx;
+  font-weight: 700;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.uname {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.menu {
+  padding: 0 24rpx;
+}
+
+.mi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 4rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #f9fafb;
+}
+
+.mi:last-child {
+  border-bottom: none;
+}
+
+.arrow {
+  color: #c7cdd4;
+  font-size: 36rpx;
+}
+
+.logout {
+  width: 100%;
+}

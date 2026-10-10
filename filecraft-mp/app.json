@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/files/index",
+    "pages/summary/index",
+    "pages/qa/index",
+    "pages/me/index",
+    "pages/login/index",
+    "pages/history/index",
+    "pages/doc-view/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2563eb",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "FileCraft",
+    "backgroundColor": "#f3f4f6",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#6b7280",
+    "selectedColor": "#2563eb",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/files/index",
+        "text": "文件",
+        "iconPath": "assets/tab/files.png",
+        "selectedIconPath": "assets/tab/files-active.png"
+      },
+      {
+        "pagePath": "pages/summary/index",
+        "text": "AI 总结",
+        "iconPath": "assets/tab/summary.png",
+        "selectedIconPath": "assets/tab/summary-active.png"
+      },
+      {
+        "pagePath": "pages/qa/index",
+        "text": "问答",
+        "iconPath": "assets/tab/qa.png",
+        "selectedIconPath": "assets/tab/qa-active.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的",
+        "iconPath": "assets/tab/me.png",
+        "selectedIconPath": "assets/tab/me-active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 300000,
+    "uploadFile": 300000,
+    "downloadFile": 300000
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
