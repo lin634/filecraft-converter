@@ -1,6 +1,6 @@
 <div align="center">
 
-# FileCraft
+# FileCraft 文档转换
 
 **把 Word / PPT / Excel / PDF 转成 Markdown，再交给大模型总结、问答、导出 PDF**
 
